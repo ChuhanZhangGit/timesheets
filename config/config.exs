@@ -13,7 +13,7 @@ config :timesheets,
 # Configures the endpoint
 config :timesheets, TimesheetsWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "NWlm6WsPegx8I7U9gQyVSOgXtmy12Vf/j9VUjHzKa/hHc4Lg3b5aLGTwNAogRnF5",
+  secret_key_base: "HXUOJX695qFl8rPHEi8bIHDEw0saeP6PkS1piPs2HeQ1bxbCN39cSYhc+KEZW0Db",
   render_errors: [view: TimesheetsWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Timesheets.PubSub, adapter: Phoenix.PubSub.PG2]
 

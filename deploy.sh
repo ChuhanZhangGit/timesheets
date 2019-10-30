@@ -17,12 +17,15 @@ mix compile
 mkdir -p priv/static
 (cd assets && npm install)
 (cd assets && webpack --mode production)
+echo "phx.digest"
 mix phx.digest
 
 # Migrate DB
+echo "ecto migrate"
 mix ecto.migrate
 
 # Generate the release
+echo "mix release"
 mix release
 
 
