@@ -12,8 +12,13 @@
 alias Timesheets.Repo
 alias Timesheets.Users.User
 
+pwhash = Argon2.hash_pwd_salt("1")
+
 Repo.insert!(%User{group: "manager", name: "Alice", email: "alice@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Bob", email: "bob@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Carol Anderson", email: "carol@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Dave Anderson", email: "dave@example.com"})
+
+Repo.insert!(%User{group: "manager", name: "test", email: "test", password_hash: pwhash})
+
 

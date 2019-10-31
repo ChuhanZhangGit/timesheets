@@ -17,10 +17,9 @@
             <ul class="navbar-nav mr-auto">
               <%= nav_link(@conn, "Home", Routes.page_path(@conn, :index)) %>
               <%= if @current_user do %>
-              <%= nav_link(@conn, "Your Photos",
-                Routes.user_path(@conn, :show, @current_user)) %>
-              <% end %>
+              <%= nav_link(@conn, "Profile", Routes.user_path(@conn, :show, @current_user)) %>
               <%= nav_link(@conn, "Users", Routes.user_path(@conn, :index)) %>
+              <% end %>
 
             </ul>
           </div>
@@ -31,8 +30,7 @@
               (<%= link("Logout", to: Routes.session_path(@conn, :delete),
                 method: :delete) %>)
             <% else %>
-              <%= link("Login", to: Routes.session_path(@conn, :new)) %> | 
-              <%= link("Register", to: Routes.user_path(@conn, :new)) %>
+              <%= link("Login", to: Routes.session_path(@conn, :new)) %>  
             <% end %>
           </div>
         </nav>
