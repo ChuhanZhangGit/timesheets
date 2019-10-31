@@ -3,10 +3,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Group</th>
       <th>Email</th>
       <th>Name</th>
-      <th>Manager</th>
+      <th>Manager Id</th>
 
       <th></th>
     </tr>
@@ -14,10 +15,11 @@
   <tbody>
 <%= for user <- @users do %>
     <tr>
+      <td><%= user.id%></td>
       <td><%= user.group %></td>
       <td><%= user.email %></td>
       <td><%= user.name %></td>
-      <td><%= user.manager %></td>
+      <td><%= user.manager_id %></td>
 
       <td>
         <span><%= link "Show", to: Routes.user_path(@conn, :show, user) %></span>

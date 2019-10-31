@@ -3,9 +3,9 @@ defmodule TimesheetsWeb.UserControllerTest do
 
   alias Timesheets.Users
 
-  @create_attrs %{email: "some email", group: "some group", manager: "some manager", name: "some name"}
-  @update_attrs %{email: "some updated email", group: "some updated group", manager: "some updated manager", name: "some updated name"}
-  @invalid_attrs %{email: nil, group: nil, manager: nil, name: nil}
+  @create_attrs %{email: "some email", group: "some group", manager_id: "some manager", name: "some name"}
+  @update_attrs %{email: "some updated email", group: "some updated group", manager_id: "some updated manager", name: "some updated name"}
+  @invalid_attrs %{email: nil, group: nil, manager_id: nil, name: nil}
 
   def fixture(:user) do
     {:ok, user} = Users.create_user(@create_attrs)

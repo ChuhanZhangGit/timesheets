@@ -18,8 +18,8 @@
   </li>
 
   <li>
-    <strong>Manager:</strong>
-    <%= @user.manager %>
+    <strong>Manager Id:</strong>
+    <%= @user.manager_id %>
   </li>
 
 </ul>

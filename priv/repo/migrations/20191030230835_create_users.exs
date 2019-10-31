@@ -6,10 +6,9 @@ defmodule Timesheets.Repo.Migrations.CreateUsers do
       add :group, :string, null: false
       add :email, :string, null: false
       add :name, :string, null: false
-      add :manager, :string, null: true
-
+      add :manager_id, references(:users, on_delete: :nothing), null: true 
       timestamps()
     end
-
+    create index(:users, [:manager_id])
   end
 end

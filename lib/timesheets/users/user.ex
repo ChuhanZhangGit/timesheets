@@ -5,15 +5,13 @@ defmodule Timesheets.Users.User do
   schema "users" do
     field :email, :string
     field :group, :string
-    field :manager, :string
+    field :manager_id, :id
     field :name, :string
 
     field :password_hash, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
   
-
-
     timestamps()
   end
 
@@ -21,7 +19,7 @@ defmodule Timesheets.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:group, :email, :name, :manager, :password, :password_confirmation])
+    |> cast(attrs, [:group, :email, :name, :manager_id, :password, :password_confirmation])
     |> validate_confirmation(:password)
     # change back
     |> validate_length(:password, min: 1) # too short
