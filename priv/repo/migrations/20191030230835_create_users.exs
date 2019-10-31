@@ -3,10 +3,10 @@ defmodule Timesheets.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :group, :string
-      add :email, :string
-      add :name, :string
-      add :manager, :string
+      add :group, :string, null: false
+      add :email, :string, null: false
+      add :name, :string, null: false
+      add :manager, :string, null: true
 
       timestamps()
     end

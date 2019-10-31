@@ -16,3 +16,4 @@ Repo.insert!(%User{group: "manager", name: "Alice", email: "alice@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Bob", email: "bob@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Carol Anderson", email: "carol@example.com"})
 Repo.insert!(%User{group: "worker", manager: "Alice", name: "Dave Anderson", email: "dave@example.com"})
+

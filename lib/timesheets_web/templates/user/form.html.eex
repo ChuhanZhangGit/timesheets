@@ -4,11 +4,13 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+
   <div class="form-group">
   <%= label f, :group %>
   <%= text_input f, :group %>
   <%= error_tag f, :group %>
   </div>
+
   <div class="form-group">
   <%= label f, :email %>
   <%= text_input f, :email %>
@@ -16,7 +18,6 @@
   </div>
 
   <div class="form-group">
-
   <%= label f, :name %>
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
@@ -27,6 +28,18 @@
   <%= label f, :manager %>
   <%= text_input f, :manager %>
   <%= error_tag f, :manager %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :password %>
+    <%= password_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :password_confirmation %>
+    <%= password_input f, :password_confirmation, class: "form-control" %>
+    <%= error_tag f, :password_confirmation %>
   </div>
 
   <div>

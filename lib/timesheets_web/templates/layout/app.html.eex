@@ -15,12 +15,13 @@
           </div>
           <div class="col-6">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">All Photos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Your Photos</a>
-              </li>
+              <%= nav_link(@conn, "Home", Routes.page_path(@conn, :index)) %>
+              <%= if @current_user do %>
+              <%= nav_link(@conn, "Your Photos",
+                Routes.user_path(@conn, :show, @current_user)) %>
+              <% end %>
+              <%= nav_link(@conn, "Users", Routes.user_path(@conn, :index)) %>
+
             </ul>
           </div>
           <%# login part  %>
@@ -30,7 +31,8 @@
               (<%= link("Logout", to: Routes.session_path(@conn, :delete),
                 method: :delete) %>)
             <% else %>
-              <%= link("Login", to: Routes.session_path(@conn, :new)) %>
+              <%= link("Login", to: Routes.session_path(@conn, :new)) %> | 
+              <%= link("Register", to: Routes.user_path(@conn, :new)) %>
             <% end %>
           </div>
         </nav>
