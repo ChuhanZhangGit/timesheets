@@ -7,7 +7,7 @@
       <th>Group</th>
       <th>Email</th>
       <th>Name</th>
-      <th>Manager Id</th>
+      <th>Manager</th>
 
       <th></th>
     </tr>
@@ -19,7 +19,10 @@
       <td><%= user.group %></td>
       <td><%= user.email %></td>
       <td><%= user.name %></td>
-      <td><%= user.manager_id %></td>
+      <td><%= 
+      if user.manager_id != nil do
+        Timesheets.Users.get_user(user.manager_id).name 
+      end%></td>
 
       <td>
         <span><%= link "Show", to: Routes.user_path(@conn, :show, user) %></span>

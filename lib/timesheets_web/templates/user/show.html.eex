@@ -18,8 +18,11 @@
   </li>
 
   <li>
-    <strong>Manager Id:</strong>
-    <%= @user.manager_id %>
+    <strong>Manager:</strong>
+    <%= 
+      if user.manager_id != nil do
+        Timesheets.Users.get_user(user.manager_id).name 
+      end%>
   </li>
 
 </ul>
