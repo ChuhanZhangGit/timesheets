@@ -24,6 +24,8 @@ defmodule TimesheetsWeb.Router do
     resources "/daysheets", DaysheetController
 
     resources "/jobs", JobController
+
+    resources "/tasks", TaskController
   end
 
   # Other scopes may use custom stacks.
