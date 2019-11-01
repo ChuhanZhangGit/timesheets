@@ -1,0 +1,28 @@
+<h1>Listing Daysheets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Approved</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for daysheet <- @daysheets do %>
+    <tr>
+      <td><%= daysheet.date %></td>
+      <td><%= daysheet.approved %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.daysheet_path(@conn, :show, daysheet) %></span>
+        <span><%= link "Edit", to: Routes.daysheet_path(@conn, :edit, daysheet) %></span>
+        <span><%= link "Delete", to: Routes.daysheet_path(@conn, :delete, daysheet), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Daysheet", to: Routes.daysheet_path(@conn, :new) %></span>

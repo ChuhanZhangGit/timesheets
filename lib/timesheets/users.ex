@@ -39,8 +39,6 @@ defmodule Timesheets.Users do
 
   def get_user(id) do
     user = Repo.get(User, id)
-    IO.puts("asdfsdfsdfa")
-    IO.puts(user.name)
     user
   end
 

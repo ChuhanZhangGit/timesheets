@@ -1,0 +1,18 @@
+<h1>Show Daysheet</h1>
+
+<ul>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @daysheet.date %>
+  </li>
+
+  <li>
+    <strong>Approved:</strong>
+    <%= @daysheet.approved %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.daysheet_path(@conn, :edit, @daysheet) %></span>
+<span><%= link "Back", to: Routes.daysheet_path(@conn, :index) %></span>

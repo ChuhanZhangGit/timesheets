@@ -20,6 +20,8 @@ defmodule TimesheetsWeb.Router do
 
     get "/", PageController, :index
     resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
+
+    resources "/daysheets", DaysheetController
   end
 
   # Other scopes may use custom stacks.
