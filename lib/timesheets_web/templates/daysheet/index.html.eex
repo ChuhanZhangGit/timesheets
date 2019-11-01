@@ -1,26 +1,43 @@
 <h1>Listing Daysheets</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
+    <%= if @current_user.group == "manager" do %>
+      <th >Worker name</th>
+      <th >Date</th>
+      <th >Approved</th>
+    <% else %>
       <th>Date</th>
       <th>Approved</th>
-
+    <% end %>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for daysheet <- @daysheets do %>
-    <tr>
-      <td><%= daysheet.date %></td>
-      <td><%= daysheet.approved %></td>
-
+  <%= cond do %>
+    <%  @current_user.id == daysheet.worker_id -> %>
+      <tr>
+      <td ><%= daysheet.date %></td>
+      <td ><%= daysheet.approved %></td>
+      <td >
+        <span><%= link "Show", to: Routes.daysheet_path(@conn, :show, daysheet) %></span>
+        <span><%= link "Edit", to: Routes.daysheet_path(@conn, :edit, daysheet) %></span>
+      </td>
+    </tr>
+    <%  @current_user.id == daysheet.manager_id -> %>
+      <tr>
+        <td ><%= get_user_name_by_id(daysheet.worker_id) %></td>
+        <td ><%= daysheet.date %></td>
+        <td ><%= daysheet.approved %></td>
       <td>
         <span><%= link "Show", to: Routes.daysheet_path(@conn, :show, daysheet) %></span>
         <span><%= link "Edit", to: Routes.daysheet_path(@conn, :edit, daysheet) %></span>
         <span><%= link "Delete", to: Routes.daysheet_path(@conn, :delete, daysheet), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
-    </tr>
+      </tr>
+  <% end %>
 <% end %>
   </tbody>
 </table>
