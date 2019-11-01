@@ -1,4 +1,40 @@
+# Database structure
+
+## User
+Columns
+- group: string 
+- email:string 
+- name:string 
+- manager_id: id
+
+## Daysheet
+This table track the timesheet the worker submitted.
+Columns
+- manager_id:references:users
+- worker_id:references:users 
+- date:date 
+- approved:boolean
+
+## Task
+Columns
+- daysheet_id:references:daysheets
+- job_id:references:jobs 
+- job_code:string 
+- hours:float 
+- note:string 
+- worker_id:references:users
+
+## Job
+Columns
+- jobcode:string 
+- manager_id:references:users 
+- budget:integer 
+- name:string 
+- description:string
+
+
 # Timesheets
+
 
 To start your Phoenix server:
 

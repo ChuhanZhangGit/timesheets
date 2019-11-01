@@ -14,7 +14,28 @@ defmodule TimesheetsWeb.DaysheetController do
     render(conn, "new.html", changeset: changeset)
   end
 
+  def update_sheet_param(daysheet_params, current_user) do
+    daysheet_params
+    |> Map.put("manager_id", current_user.manager_id)
+    |> Map.put("worker_id", current_user.id) 
+  end
+
+  def filter_param(daysheet_params, current_user) do 
+    if (current_user.group != "manager") do 
+      daysheet_params = Map.delete(daysheet_params, "approved")
+    end
+    daysheet_params
+  end
+
   def create(conn, %{"daysheet" => daysheet_params}) do
+    IO.inspect(daysheet_params)
+
+    current_user =  conn.assigns[:current_user]
+    daysheet_params = daysheet_params
+    |> update_sheet_param(current_user)
+    |> filter_param(current_user)
+    IO.inspect(daysheet_params)
+
     case Daysheets.create_daysheet(daysheet_params) do
       {:ok, daysheet} ->
         conn

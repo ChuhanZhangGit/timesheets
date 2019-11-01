@@ -14,7 +14,7 @@ defmodule Timesheets.Daysheets.Daysheet do
   @doc false
   def changeset(daysheet, attrs) do
     daysheet
-    |> cast(attrs, [:date, :approved])
-    |> validate_required([:date, :approved])
+    |> cast(attrs, [:date, :approved, :manager_id, :worker_id])
+    |> validate_required([:date, :approved, :manager_id, :worker_id])
   end
 end
