@@ -1,3 +1,17 @@
+# Design 
+Database contain one User table for all user that includes 2 user groups: 1. worker, 2. manager. 
+
+
+Worker can only create timesheet.
+Manager can view,delete and approve timesheet but can't edit timesheet.
+
+<strong>Maximum of 8 hour work is checked. When user submit more 8 hours of work, the timesheet wouldn't be stored</strong>
+
+Login infos:
+Worker: bob@example.com password: 1
+Worker: carol@example.com password: 1
+Manager: test password: 1
+
 # Database structure
 
 ## User

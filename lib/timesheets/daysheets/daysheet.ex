@@ -19,7 +19,7 @@ defmodule Timesheets.Daysheets.Daysheet do
     if validate_hour(attrs) do 
       daysheet
       |> cast(attrs, [:date, :approved, :manager_id, :worker_id])
-      |> cast_assoc(:tasks, required: true)
+      |> cast_assoc(:tasks)
       |> validate_required([:date, :approved, :manager_id, :worker_id])
     else
       daysheet
