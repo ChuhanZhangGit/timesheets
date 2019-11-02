@@ -13,7 +13,8 @@ https://github.com/ChuhanZhangGit/timesheets
 
 
 3. What's the version number of your github release?
-
+version number 1
+hash: 2f15067
 
 
 4. What's the URL that you deployed to?
@@ -22,6 +23,7 @@ http://timesheets.chuhandev.com/
 
 5. Is your app functionality complete? If not, what's missing?
 No. Validation of max 8 hr/day implemented in the changeset but doesn't work.
+Worker tasks submission may cause error.
 
 
 6. Is your app properly deployed? If not, what went wrong?

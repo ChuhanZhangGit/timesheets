@@ -38,7 +38,7 @@ defmodule Timesheets.Daysheets.Daysheet do
         {hr, _} = Float.parse(e["hours"]); 
         hr end )
       |> Enum.reduce(fn x, acc -> x + acc end )
-      total_hrs < 8
+      total_hrs <= 8
     else
       false
     end
