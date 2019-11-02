@@ -7,10 +7,10 @@ Manager can view,delete and approve timesheet but can't edit timesheet.
 
 <strong>Maximum of 8 hour work is checked. When user submit more 8 hours of work, the timesheet wouldn't be stored</strong>
 
-Login infos:
-Worker: bob@example.com password: 1
-Worker: carol@example.com password: 1
-Manager: test password: 1
+Login infos:  
+Worker: bob@example.com password:1  
+Worker: carol@example.com password:1  
+Manager: test password: 1   
 
 # Database structure
 
