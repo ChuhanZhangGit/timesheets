@@ -1,5 +1,7 @@
 <h1>Edit Daysheet</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.daysheet_path(@conn, :update, @daysheet)) %>
+<%= if @current_user.group == "manager" do %>
+    <%= render "approve.html", Map.put(assigns, :action, Routes.daysheet_path(@conn, :update, @daysheet)) %>
+<% end %>
 
 <span><%= link "Back", to: Routes.daysheet_path(@conn, :index) %></span>

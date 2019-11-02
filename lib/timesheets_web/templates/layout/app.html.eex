@@ -18,7 +18,6 @@
               <%= nav_link(@conn, "Home", Routes.page_path(@conn, :index)) %>
               <%= if @current_user do %>
               <%= nav_link(@conn, "Profile", Routes.user_path(@conn, :show, @current_user)) %>
-              <%= nav_link(@conn, "Users", Routes.user_path(@conn, :index)) %>
               <%= nav_link(@conn, "Timesheet", Routes.daysheet_path(@conn, :index)) %>
               <% end %>
 

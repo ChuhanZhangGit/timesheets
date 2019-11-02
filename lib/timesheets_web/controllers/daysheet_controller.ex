@@ -10,7 +10,7 @@ defmodule TimesheetsWeb.DaysheetController do
   end
 
   def new(conn, _params) do
-    changeset = Daysheets.change_daysheet(%Daysheet{})
+    changeset = Daysheets.change_daysheet(%Daysheet{tasks: List.duplicate(%Timesheets.Tasks.Task{}, 8)})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -23,18 +23,18 @@ defmodule TimesheetsWeb.DaysheetController do
   def filter_param(daysheet_params, current_user) do 
     if (current_user.group != "manager") do 
       daysheet_params = Map.delete(daysheet_params, "approved")
+      daysheet_params
+    else
+      daysheet_params
     end
-    daysheet_params
   end
 
   def create(conn, %{"daysheet" => daysheet_params}) do
-    IO.inspect(daysheet_params)
 
     current_user =  conn.assigns[:current_user]
     daysheet_params = daysheet_params
     |> update_sheet_param(current_user)
     |> filter_param(current_user)
-    IO.inspect(daysheet_params)
 
     case Daysheets.create_daysheet(daysheet_params) do
       {:ok, daysheet} ->
@@ -49,7 +49,9 @@ defmodule TimesheetsWeb.DaysheetController do
 
   def show(conn, %{"id" => id}) do
     daysheet = Daysheets.get_daysheet!(id)
-    render(conn, "show.html", daysheet: daysheet)
+    tasks = Timesheets.Tasks.get_tasks_from_sheet_id(id)
+    IO.inspect(tasks)
+    render(conn, "show.html", daysheet: daysheet, tasks: tasks)
   end
 
   def edit(conn, %{"id" => id}) do

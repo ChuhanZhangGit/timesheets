@@ -35,7 +35,11 @@ defmodule Timesheets.Daysheets do
       ** (Ecto.NoResultsError)
 
   """
-  def get_daysheet!(id), do: Repo.get!(Daysheet, id)
+  def get_daysheet!(id) do
+    Repo.one! from s in Daysheet,
+    where: s.id == ^id,
+    preload: [tasks: s]
+  end
 
   @doc """
   Creates a daysheet.

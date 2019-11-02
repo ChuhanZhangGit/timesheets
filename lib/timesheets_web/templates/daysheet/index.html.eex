@@ -33,10 +33,11 @@
         <td ><%= daysheet.approved %></td>
       <td>
         <span><%= link "Show", to: Routes.daysheet_path(@conn, :show, daysheet) %></span>
-        <span><%= link "Edit", to: Routes.daysheet_path(@conn, :edit, daysheet) %></span>
+        <span><%= link "Approve", to: Routes.daysheet_path(@conn, :edit, daysheet) %></span>
         <span><%= link "Delete", to: Routes.daysheet_path(@conn, :delete, daysheet), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
       </tr>
+    <% true -> %>
   <% end %>
 <% end %>
   </tbody>
