@@ -19,7 +19,9 @@ manager_pw = Argon2.hash_pwd_salt("1")
 worker_pw = Argon2.hash_pwd_salt("1")
 w2_pw = Argon2.hash_pwd_salt("1")
 
-Repo.insert!(%User{id: 1, group: "manager", name: "Alice", email: "alice@example.com"})
+Repo.insert!(%User{id: 1, group: "manager", name: "Alice", email: "alice@example.com", password_hash: manager_pw})
+
+
 Repo.insert!(%User{id: 5, group: "manager", name: "test", email: "test", password_hash: manager_pw})
 Repo.insert!(%User{id: 2, group: "worker", manager_id: 1, name: "Bob", email: "bob@example.com", password_hash: worker_pw})
 Repo.insert!(%User{id: 3, group: "worker", manager_id: 1, name: "Carol Anderson", email: "carol@example.com", password_hash: manager_pw})

@@ -22,7 +22,8 @@ mix phx.digest
 
 # Migrate DB
 echo "ecto migrate"
-mix ecto.migrate
+mix ecto.reset
+# mix ecto.migrate
 
 # Generate the release
 echo "mix release"
